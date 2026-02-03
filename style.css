@@ -1,17 +1,26 @@
 :root {
-    /* Color Palette - Corporate & Fresh */
-    --primary-color: #0f4c81;
-    /* Classic Blue */
-    --primary-light: #eff6ff;
-    --primary-dark: #1e3a8a;
-    --secondary-color: #64748b;
-    /* Slate Grey */
+    /* Color Palette - Deep Tech & Vibrant */
+    --primary-color: #3b82f6;
+    /* Bright Tech Blue */
+    --primary-light: #60a5fa;
+    --primary-dark: #1d4ed8;
+    --secondary-color: #94a3b8;
+    /* Slate */
     --accent-color: #10b981;
-    /* Growth Green */
+    /* Neon Growth Green */
+
     --bg-color: #ffffff;
     --bg-color-alt: #f8fafc;
+
+    --dark-header-bg: #020617;
+    /* Deep Navy/Black */
+    --dark-hero-bg: radial-gradient(circle at top right, #1e3a8a, #020617 60%);
+
     --text-primary: #1e293b;
     --text-secondary: #475569;
+    --text-inverse: #f8fafc;
+    /* For dark backgrounds */
+
     --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     --card-hover-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
     --font-main: 'Inter', sans-serif;
@@ -25,7 +34,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 80px;
+    scroll-padding-top: 90px;
 }
 
 body {
@@ -50,15 +59,18 @@ strong {
     padding: 0 24px;
 }
 
-/* Header */
+/* Header - Dark & Premium */
 header {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(2, 6, 23, 0.95);
+    /* Dark Transparent */
     backdrop-filter: blur(12px);
     z-index: 1000;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    /* Stronger shadow */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .navbar {
@@ -71,7 +83,9 @@ header {
 .logo img {
     height: 70px;
     width: auto;
-    filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+    /* Removed drop-shadow as it looks better clean on dark bg */
+    filter: brightness(1.1);
+    /* Slight pop */
     transition: transform 0.3s;
 }
 
@@ -88,25 +102,28 @@ header {
 
 .nav-list a {
     text-decoration: none;
-    color: var(--text-secondary);
+    color: #cbd5e1;
+    /* Light text */
     font-weight: 500;
     transition: color 0.2s;
 }
 
 .nav-list a:hover {
-    color: var(--primary-color);
+    color: var(--primary-light);
 }
 
 .btn-header {
-    background-color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
     color: white !important;
     padding: 10px 24px;
     border-radius: 6px;
-    transition: background-color 0.2s;
+    transition: all 0.2s;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
 .btn-header:hover {
-    background-color: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
 }
 
 /* Mobile Menu */
@@ -114,15 +131,18 @@ header {
     display: none;
     font-size: 24px;
     cursor: pointer;
-    color: var(--text-primary);
+    color: white;
+    /* White icon */
 }
 
-/* Hero Section */
+/* Hero Section - Deep Tech */
 .hero {
     padding-top: 140px;
     padding-bottom: 80px;
-    background: radial-gradient(circle at top right, var(--primary-light), transparent 40%);
+    background: var(--dark-hero-bg);
     overflow: hidden;
+    color: white;
+    /* Default text white in hero */
 }
 
 .hero-container {
@@ -134,8 +154,10 @@ header {
 
 .badge {
     display: inline-block;
-    background: #dbeafe;
-    color: var(--primary-dark);
+    background: rgba(59, 130, 246, 0.15);
+    /* Glassy Blue */
+    color: var(--primary-light);
+    border: 1px solid rgba(59, 130, 246, 0.3);
     font-weight: 600;
     font-size: 0.85rem;
     padding: 6px 12px;
@@ -148,11 +170,14 @@ header {
     line-height: 1.1;
     letter-spacing: -0.02em;
     margin-bottom: 24px;
+    color: white;
+    /* Force white */
 }
 
 .hero-text p {
     font-size: 1.25rem;
-    color: var(--text-secondary);
+    color: #94a3b8;
+    /* Slate lighter */
     margin-bottom: 32px;
     max-width: 500px;
 }
@@ -164,7 +189,7 @@ header {
 }
 
 .btn-primary {
-    background: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
     color: white;
     padding: 14px 28px;
     border-radius: 8px;
@@ -174,18 +199,19 @@ header {
     align-items: center;
     gap: 8px;
     transition: all 0.2s;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+    border: none;
 }
 
 .btn-primary:hover {
-    background: var(--primary-dark);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(15, 76, 129, 0.2);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
 }
 
 .btn-outline {
     background: transparent;
-    border: 1px solid #cbd5e1;
-    color: var(--text-primary);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
     padding: 14px 28px;
     border-radius: 8px;
     text-decoration: none;
@@ -194,8 +220,8 @@ header {
 }
 
 .btn-outline:hover {
-    border-color: var(--text-primary);
-    background: #f8fafc;
+    border-color: white;
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .hero-trust {
@@ -203,7 +229,7 @@ header {
     gap: 20px;
     flex-wrap: wrap;
     font-size: 0.9rem;
-    color: var(--text-secondary);
+    color: #94a3b8;
 }
 
 .hero-trust span i {
@@ -231,7 +257,10 @@ header {
     right: 0;
     width: 80%;
     height: 80%;
-    background: #f1f5f9;
+    background: rgba(255, 255, 255, 0.1);
+    /* Transparent on dark hero */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     z-index: 1;
 }
 
@@ -263,6 +292,7 @@ header {
 
 .card-content strong {
     font-size: 1.2rem;
+    color: var(--text-primary);
 }
 
 .floating-badge {
@@ -272,7 +302,7 @@ header {
     background: white;
     padding: 12px 20px;
     border-radius: 50px;
-    box-shadow: var(--card-shadow);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     display: flex;
     align-items: center;
     gap: 10px;
@@ -347,6 +377,8 @@ header {
     width: 80px;
     height: 80px;
     background: var(--primary-light);
+    /* Make sure this contrasts well */
+    background: rgba(59, 130, 246, 0.1);
     color: var(--primary-color);
     border-radius: 50%;
     display: flex;
@@ -433,7 +465,7 @@ header {
 
 /* Stats */
 .stats-bar {
-    background: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-dark), #0f172a);
     color: white;
     padding: 60px 0;
 }
@@ -496,8 +528,8 @@ th {
 }
 
 .col-awl {
-    background: var(--primary-light);
-    color: var(--primary-color);
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--primary-dark);
     border-radius: 12px 12px 0 0;
 }
 
@@ -582,7 +614,7 @@ td.negative {
 .form-group select:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px var(--primary-light);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
 }
 
 .btn-full {
@@ -611,9 +643,11 @@ td.negative {
 
 /* Footer */
 footer {
-    background: #0f172a;
+    background: #020617;
+    /* Even darker */
     color: white;
     padding: 80px 0 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .footer-grid {
@@ -732,11 +766,12 @@ footer {
 
     .nav-list {
         position: fixed;
-        top: 80px;
+        top: 90px;
         right: -100%;
         width: 100%;
-        height: calc(100vh - 80px);
-        background: white;
+        height: calc(100vh - 90px);
+        background: rgba(2, 6, 23, 0.98);
+        /* Update mobile menu to dark */
         flex-direction: column;
         justify-content: flex-start;
         padding-top: 40px;
