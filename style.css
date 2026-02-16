@@ -83,9 +83,12 @@ header {
 .logo img {
     height: 70px;
     width: auto;
-    /* Removed drop-shadow as it looks better clean on dark bg */
-    filter: brightness(1.1);
-    /* Slight pop */
+    /* Fix for white background logo on dark header */
+    /* 1. Invert to turn white bg to black */
+    /* 2. Hue rotate to restore color (blue becomes orange, rotate back to blue) */
+    /* 3. Screen blend mode makes black bg transparent */
+    filter: invert(1) hue-rotate(180deg) brightness(1.2);
+    mix-blend-mode: screen;
     transition: transform 0.3s;
 }
 
