@@ -23,7 +23,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftp
           port: 21
-          server-dir: domains/awllocacoes.com.br/public_html/
+          server-dir: /home/u347864747/domains/awllocacoes.com.br/public_html/
           dangerous-clean-slate: true
           log-level: verbose
           exclude: |
