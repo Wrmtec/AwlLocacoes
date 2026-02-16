@@ -296,10 +296,16 @@ header {
 .hero-main-img {
     width: 100%;
     height: auto;
-    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5)) brightness(1.1) contrast(1.2);
     animation: float-main 6s ease-in-out infinite;
     transform-style: preserve-3d;
     perspective: 1000px;
+    /* Blend the image with the background for a seamless look */
+    mix-blend-mode: lighten;
+    opacity: 0.95;
+    /* Add a subtle mask to fade edges */
+    -webkit-mask-image: radial-gradient(ellipse 90% 90% at center, black 60%, transparent 100%);
+    mask-image: radial-gradient(ellipse 90% 90% at center, black 60%, transparent 100%);
 }
 
 .float-card {
