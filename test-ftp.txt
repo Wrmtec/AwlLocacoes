@@ -1,0 +1,2 @@
+Teste de deploy - horario: 2026-02-16 14:59
+Se você está vendo este arquivo na Hostinger, o FTP está funcionando!
