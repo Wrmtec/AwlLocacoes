@@ -43,3 +43,29 @@ Para facilitar o envio, **já criei um arquivo compactado** chamado `site_packag
 - **Erro 403 Forbidden:** Verifique se o arquivo principal se chama `index.html` (tem que ser tudo minúsculo).
 - **Estilos ou Imagens não carregam:** Verifique se a pasta `assets` foi extraída corretamente e se os caminhos no código estão relativos (ex: `assets/images/logo.png`).
 - **Cache:** Se você atualizou o arquivo e não vê as mudanças, tente limpar o cache do navegador ou acessar com uma aba anônima (Ctrl+Shift+N).
+
+## 🚀 Deploy Automático (GitHub Actions)
+
+Para que o site seja atualizado automaticamente toda vez que você fizer um commit no GitHub, siga estes passos:
+
+### 1. Obter Dados de FTP na Hostinger
+1. No **hPanel**, vá em **Arquivos** > **Contas FTP**.
+2. Anote o **Hostname FTP** (geralmente algo como `ftp.seudominio.com` ou um IP).
+3. Anote o **Usuário FTP** e a **Senha FTP** (se não souber, pode alterar a senha ali mesmo).
+
+### 2. Configurar "Secrets" no GitHub
+1. Vá até o seu repositório no GitHub.
+2. Clique na aba **Settings** (Configurações).
+3. No menu lateral esquerdo, vá em **Secrets and variables** > **Actions**.
+4. Clique no botão verde **New repository secret**.
+5. Adicione os seguintes segredos (um por um):
+   - **Nome:** `FTP_SERVER`
+     - **Valor:** O Hostname que você pegou na Hostinger.
+   - **Nome:** `FTP_USERNAME`
+     - **Valor:** O nome de usuário do FTP.
+   - **Nome:** `FTP_PASSWORD`
+     - **Valor:** A senha do FTP.
+
+### 3. Pronto!
+Agora, toda vez que você enviar uma alteração para o GitHub (`git push`), o GitHub Actions vai pegar os arquivos novos e enviar para a Hostinger automaticamente.
+Você pode acompanhar o processo na aba **Actions** do seu repositório no GitHub.

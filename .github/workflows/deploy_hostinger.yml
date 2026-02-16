@@ -1,0 +1,36 @@
+name: Deploy to Hostinger 🚀
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+      
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          # Se o seu usuário FTP já cai na pasta public_html, use "./". 
+          # Se cair na raiz da conta, use "public_html/".
+          # Ajuste conforme necessário. Geralmente o usuário principal precisa de "public_html/".
+          server-dir: public_html/ 
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            site_package.zip
+            DEPLOY_HOSTINGER.md
+            README.md
