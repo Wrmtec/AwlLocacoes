@@ -15,7 +15,7 @@ jobs:
         with:
           fetch-depth: 2
       
-      - name: 📂 Sync files
+      - name: 📂 Sync files via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_SERVER }}
@@ -23,7 +23,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftp
           port: 21
-          server-dir: public_html/
+          server-dir: domains/awllocacoes.com.br/public_html/
           dangerous-clean-slate: true
           log-level: verbose
           exclude: |
