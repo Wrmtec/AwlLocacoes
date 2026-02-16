@@ -21,12 +21,10 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftps
+          protocol: ftp
           port: 21
-          # Se o seu usuário FTP já cai na pasta public_html, use "./". 
-          # Se cair na raiz da conta, use "public_html/".
-          # Ajuste conforme necessário. Geralmente o usuário principal precisa de "public_html/".
-          server-dir: public_html/ 
+          server-dir: public_html/
+          log-level: verbose
           exclude: |
             **/.git*
             **/.git*/**
